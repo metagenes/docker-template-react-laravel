@@ -22,13 +22,13 @@ WORKDIR /var/www/html
 # Copy the Laravel application into the container
 COPY . .
 
-RUN composer install
-
 # Copy the Apache configuration file
 COPY .docker/apache.conf /etc/apache2/sites-available/000-default.conf
 
 # Change the ownership of the application files
 RUN chown -R www-data:www-data /var/www/html
+
+RUN composer install
 
 # Create .env file and copy .env.example to .env
 RUN cp .env.example .env
