@@ -6,7 +6,7 @@ services:
       context: ./app-laravel
       dockerfile: Dockerfile
     ports:
-      - "8002:8002"
+      - "8002:80"
     volumes:
       - ./app-laravel:/var/www/html
 
