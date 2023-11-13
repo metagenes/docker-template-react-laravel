@@ -8,6 +8,11 @@
         "ghcr.io/devcontainers/features/docker-in-docker:1": {
             "version": "latest",
             "moby": true
+        },
+        "ghcr.io/devcontainers/features/php:1": {
+            "version": "8.2",
+            "installComposer":true
         }
+        
     }
 }
