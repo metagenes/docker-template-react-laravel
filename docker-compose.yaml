@@ -9,6 +9,15 @@ services:
       - "8002:80"
     volumes:
       - ./app-laravel:/var/www/html
+    depends_on:
+      - mysql-db
+    environment:
+      DB_CONNECTION: mysql
+      DB_HOST: mysql-db
+      DB_PORT: 3306
+      DB_DATABASE: laravel_db
+      DB_USERNAME: root
+      DB_PASSWORD: root
 
   # React
   react-app:
@@ -19,6 +28,8 @@ services:
       - "3000:3000"
     volumes:
       - ./app-react:/app
+    environment:
+      REACT_APP_API_URL: "http://laravel-app:8002/api"  # Adjust the URL accordingly
 
   # MySQL
   mysql-db:
